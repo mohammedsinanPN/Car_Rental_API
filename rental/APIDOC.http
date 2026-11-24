@@ -1,0 +1,159 @@
+
+###
+POST http://127.0.0.1:8000/register/
+Content-Type: application/json
+
+{
+    "username": "amal",
+    "email": "amal@gmail.com",
+    "password": "12345678",
+    "role": "customer"
+}
+
+###
+POST http://127.0.0.1:8000/register/
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "email": "admin@gmail.com",
+    "password": "12345678",
+    "role": "admin",
+    "admin_code": "CHANGE-THIS-ADMIN-CODE"
+}
+
+###
+POST http://127.0.0.1:8000/jwt_login/
+Content-Type: application/json
+
+{
+    "username": "customer1",
+    "password": "StrongPass123"
+}
+
+###
+POST http://127.0.0.1:8000/jwt_login/
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "12345678"
+}
+
+###
+GET http://127.0.0.1:8000/cars/
+Accept: application/json
+
+###
+POST http://127.0.0.1:8000/cars/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1NTQ5NTI1LCJpYXQiOjE3OTU1NDc3MjUsImp0aSI6ImUyZWQyNGYzYmRjZjQ1ZjZhNGRjNzIyYmNlODg3OTE3IiwidXNlcl9pZCI6IjIifQ.X09vKXMFHdtdM4xzss3ubEZ-GX4tbYi1I9a5XAmGqi0
+
+{
+    "car_name": "Swift",
+    "brand": "Maruti",
+    "model": "VXI",
+    "registration_number": "KL01AB1234",
+    "fuel_type": "Petrol",
+    "transmission": "Manual",
+    "seating_capacity": 5,
+    "price_per_day": "1500.00",
+    "is_available": true
+}
+
+###
+GET http://127.0.0.1:8000/cars/1/
+Accept: application/json
+
+###
+PUT http://127.0.0.1:8000/cars/1/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1NTQ5NTI1LCJpYXQiOjE3OTU1NDc3MjUsImp0aSI6ImUyZWQyNGYzYmRjZjQ1ZjZhNGRjNzIyYmNlODg3OTE3IiwidXNlcl9pZCI6IjIifQ.X09vKXMFHdtdM4xzss3ubEZ-GX4tbYi1I9a5XAmGqi0
+{
+    "car_name": "Swift",
+    "brand": "Maruti",
+    "model": "ZXI",
+    "registration_number": "KL01AB1234",
+    "fuel_type": "Petrol",
+    "transmission": "Manual",
+    "seating_capacity": 5,
+    "price_per_day": "1700.00",
+    "is_available": true
+}
+
+###
+DELETE http://127.0.0.1:8000/cars/1/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1NTQ5NTI1LCJpYXQiOjE3OTU1NDc3MjUsImp0aSI6ImUyZWQyNGYzYmRjZjQ1ZjZhNGRjNzIyYmNlODg3OTE3IiwidXNlcl9pZCI6IjIifQ.X09vKXMFHdtdM4xzss3ubEZ-GX4tbYi1I9a5XAmGqi0
+
+###
+GET http://127.0.0.1:8000/available-cars/?pickup_date=2026-11-25&return_date=2026-11-28
+Accept: application/json
+
+###
+POST http://127.0.0.1:8000/bookings/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1NTQ5NDMyLCJpYXQiOjE3OTU1NDc2MzIsImp0aSI6IjU2MDdlOWI1NWNmODQ1MzY4ODA0YTdhNzY2ZjUwYzM4IiwidXNlcl9pZCI6IjEifQ.O5D_ooBVLjWInnRMd2Pk0ivYTVcev7m7k_ZKIHmRHDk
+
+{
+    "car": 1,
+    "pickup_date": "2026-11-25",
+    "return_date": "2026-11-28",
+    "pickup_location": "Kochi"
+}
+
+###
+GET http://127.0.0.1:8000/bookings/
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1NTQ5NjAzLCJpYXQiOjE3OTU1NDc4MDMsImp0aSI6ImVhZTZiMTY5YTQ2ZDRkMDM5ZjAyN2U5NTYyN2E0MzFkIiwidXNlcl9pZCI6IjEifQ.qbr8GCaqNR0ttYUbaiYNpNRMo4LRGzd7HguPurs-60w
+###
+GET http://127.0.0.1:8000/bookings/1/
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1NTQ5NjAzLCJpYXQiOjE3OTU1NDc4MDMsImp0aSI6ImVhZTZiMTY5YTQ2ZDRkMDM5ZjAyN2U5NTYyN2E0MzFkIiwidXNlcl9pZCI6IjEifQ.qbr8GCaqNR0ttYUbaiYNpNRMo4LRGzd7HguPurs-60w
+
+###
+POST http://127.0.0.1:8000/bookings/1/cancel/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1NTQ5NjAzLCJpYXQiOjE3OTU1NDc4MDMsImp0aSI6ImVhZTZiMTY5YTQ2ZDRkMDM5ZjAyN2U5NTYyN2E0MzFkIiwidXNlcl9pZCI6IjEifQ.qbr8GCaqNR0ttYUbaiYNpNRMo4LRGzd7HguPurs-60w
+
+###
+PUT http://127.0.0.1:8000/bookings/1/status/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1NTQ5NjY1LCJpYXQiOjE3OTU1NDc4NjUsImp0aSI6ImEyNGYwMDRhZjYxMjQ3MGI5Y2U2ODBiMzgxZTYyNmQzIiwidXNlcl9pZCI6IjIifQ.EAoXrX-6rC5A3ZuHoIR1CNllpzh-YCd0B6yzrBAAt4k
+
+{
+    "status": "Approved"
+}
+
+###
+PUT http://127.0.0.1:8000/bookings/1/status/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1NTQ5NjY1LCJpYXQiOjE3OTU1NDc4NjUsImp0aSI6ImEyNGYwMDRhZjYxMjQ3MGI5Y2U2ODBiMzgxZTYyNmQzIiwidXNlcl9pZCI6IjIifQ.EAoXrX-6rC5A3ZuHoIR1CNllpzh-YCd0B6yzrBAAt4k
+
+{
+    "status": "Rejected"
+}
+
+###
+PUT http://127.0.0.1:8000/bookings/1/status/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1NTQ5NjY1LCJpYXQiOjE3OTU1NDc4NjUsImp0aSI6ImEyNGYwMDRhZjYxMjQ3MGI5Y2U2ODBiMzgxZTYyNmQzIiwidXNlcl9pZCI6IjIifQ.EAoXrX-6rC5A3ZuHoIR1CNllpzh-YCd0B6yzrBAAt4k
+
+{
+    "status": "Completed"
+}
+
+###
+POST http://127.0.0.1:8000/refresh/
+Content-Type: application/json
+
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5NTYzNDM3MCwiaWF0IjoxNzk1NTQ3OTcwLCJqdGkiOiJhNDZlYmM0NmQxYzg0ZjY3YmZjNDczM2U3NGJhMGNlMCIsInVzZXJfaWQiOiIxIn0.EqHPXKtF6vKDErTdL_joA8olHrM_YUm52-eCWI2q9Sg"
+}
+
+###
+POST http://127.0.0.1:8000/logout/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5NTYzNDM3MCwiaWF0IjoxNzk1NTQ3OTcwLCJqdGkiOiJhNDZlYmM0NmQxYzg0ZjY3YmZjNDczM2U3NGJhMGNlMCIsInVzZXJfaWQiOiIxIn0.EqHPXKtF6vKDErTdL_joA8olHrM_YUm52-eCWI2q9Sg
+
+{
+    "refresh": "paste_refresh_token_here"
+}
